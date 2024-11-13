@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Project</h1>
+<form method="post">
+    <label for="project_name">Project Name:</label>
+    <input type="text" id="project_name" name="project_name" value="{{ project['project_name'] }}"><br><br>
+    <label for="project_manager">Project Manager:</label>
+    <input type="text" id="project_manager" name="project_manager" value="{{ project['project_manager'] }}"><br><br>
+    <label for="start_date">Start Date:</label>
+    <input type="date" id="start_date" name="start_date" value="{{ project['start_date'] }}"><br><br>
+    <label for="end_date">End Date:</label>
+    <input type="date" id="end_date" name="end_date" value="{{ project['end_date'] }}"><br><br>
+    <label for="revised_end_date">Revised End Date:</label>
+    <input type="date" id="revised_end_date" name="revised_end_date" value="{{ project['revised_end_date'] }}"><br><br>
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        <option value="Active" {% if project['status'] == 'Active' %}selected{% endif %}>Active</option>
+        <option value="On Hold" {% if project['status'] == 'On Hold' %}selected{% endif %}>On Hold</option>
+    </select><br><br>
+    <input type="submit" value="Save Changes">
+</form>
+<a href="{{ url_for('index') }}">Back to Dashboard</a>
+{% endblock %}

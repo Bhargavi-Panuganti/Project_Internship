@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Management</title>
+</head>
+<body>
+    <h1>Project Management Dashboard</h1>
+
+    <form method="post">
+        <label for="project_name">Project Name:</label>
+        <input type="text" id="project_name" name="project_name"><br><br>
+        <input type="submit" value="Add Project">
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Project Manager</th>
+                </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project['project_name'] }}</td>
+                <td>{{ project['project_manager'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
